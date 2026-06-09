@@ -1,0 +1,121 @@
+{
+  "version": "1.0",
+  "description": "DreamWalker Golden + boundary + persistence scenarios for manual and harness eval",
+  "product": "巡梦舱 DreamWalker",
+  "baseUrl": "https://dreamwalker.vercel.app/",
+  "scenarios": [
+    {
+      "id": "golden-library-train",
+      "title": "Golden · 图书馆 + 列车 + 海水",
+      "category": "golden",
+      "traveler": "评测旅人A",
+      "fragments": [
+        "我在一座会呼吸的图书馆里醒来，书架像潮水一样退开，妈妈站在月光尽头没有说话。",
+        "后来我坐上一列没有车窗的列车，胸口发紧，车票上写着未来两个字，脚下却全是海水。",
+        "我想追上她，可走廊越来越长，灯一盏一盏熄灭，只剩海浪声在背后。"
+      ],
+      "emotion": "思念",
+      "intensity": 7,
+      "bodyFeelings": ["胸口发紧", "脚步沉"],
+      "atmosphere": "青蓝",
+      "expectedUniverse": ["记忆鲸落", "月亮图书馆"],
+      "expectSceneCountMin": 4,
+      "expectElements": ["妈妈", "图书馆", "列车", "海水", "胸口发紧"],
+      "expectNonTextInput": true,
+      "expectAfterword": true
+    },
+    {
+      "id": "golden-moon-child",
+      "title": "Golden · 月亮图书馆 + 小时候的自己",
+      "category": "golden",
+      "traveler": "评测旅人B",
+      "fragments": [
+        "我梦见自己站在一座很高的图书馆里，书架一直通向月亮。",
+        "小时候的我从一本旧书里跑出来，拉着我往前走。",
+        "我们穿过很多发光的书页，他最后把一本空白的书交给我，封面上写着未来。"
+      ],
+      "emotion": "治愈",
+      "intensity": 6,
+      "bodyFeelings": ["身体很轻"],
+      "atmosphere": "月白",
+      "expectedUniverse": ["月亮图书馆"],
+      "expectSceneCountMin": 4,
+      "expectElements": ["图书馆", "月亮", "小时候", "未来"]
+    },
+    {
+      "id": "golden-whale-farewell",
+      "title": "Golden · 告别与鲸落",
+      "category": "golden",
+      "traveler": "评测旅人C",
+      "fragments": [
+        "我站在海边，看见一条巨大的鲸缓慢沉下去，像一场安静的告别。",
+        "我喊了一个名字，但风把声音吹散了，胸口发紧。"
+      ],
+      "emotion": "思念",
+      "intensity": 8,
+      "bodyFeelings": ["胸口发紧"],
+      "atmosphere": "深蓝",
+      "expectedUniverse": ["记忆鲸落"],
+      "expectSceneCountMin": 4,
+      "expectElements": ["海", "鲸", "告别", "胸口发紧"]
+    },
+    {
+      "id": "universe-whale",
+      "title": "宇宙映射 · 记忆鲸落",
+      "category": "universe",
+      "fragments": ["海水淹没走廊，我追不上妈妈的背影，告别来得很安静。"],
+      "emotion": "思念",
+      "expectedUniverse": ["记忆鲸落"]
+    },
+    {
+      "id": "universe-library",
+      "title": "宇宙映射 · 月亮图书馆",
+      "category": "universe",
+      "fragments": ["月亮照进图书馆，小时候的我递给我一本写着未来的空白书。"],
+      "emotion": "治愈",
+      "expectedUniverse": ["月亮图书馆"]
+    },
+    {
+      "id": "boundary-empty",
+      "title": "边界 · 空输入",
+      "category": "boundary",
+      "fragments": [],
+      "expectBlocked": true,
+      "expectMessageContains": ["碎片", "至少"]
+    },
+    {
+      "id": "boundary-long-fragment",
+      "title": "边界 · 超长碎片",
+      "category": "boundary",
+      "fragments": ["很长" ],
+      "note": "单碎片超过长度限制时应截断或提示，不阻塞主链路"
+    },
+    {
+      "id": "boundary-no-history",
+      "title": "边界 · 新旅人无历史",
+      "category": "boundary",
+      "traveler": "全新旅人_空书架",
+      "expectEmptyGallery": true,
+      "expectEmptyCalendarHint": true
+    },
+    {
+      "id": "boundary-voice-fallback",
+      "title": "边界 · 语音兜底",
+      "category": "boundary",
+      "expectQuickVoiceAvailable": true,
+      "note": "麦克风不可用时仍可通过快捷语音完成非文本录入演示"
+    },
+    {
+      "id": "persistence-refresh",
+      "title": "持久化 · 刷新后保留",
+      "category": "persistence",
+      "steps": ["完成一次生成并保存", "刷新页面", "从书架或日历找回同一梦境"]
+    },
+    {
+      "id": "persistence-traveler-isolation",
+      "title": "持久化 · 旅人隔离",
+      "category": "persistence",
+      "steps": ["旅人A保存梦境", "切换旅人B", "旅人B书架不应出现旅人A的梦境"]
+    }
+  ]
+}

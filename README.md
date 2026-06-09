@@ -133,6 +133,24 @@ dreamwalker:data:<traveler-name>
 - 无历史记录：书架和日历展示空状态并引导创建。
 - 移动端：页面提供单列布局和文字换行保护。
 
+## 线上环境
+
+- **Vercel：** https://dreamwalker.vercel.app/
+- **GitHub：** https://github.com/Victoriaria/DreamWalker
+
+## 文档与评测
+
+| 路径 | 说明 |
+|------|------|
+| `docs/PRD.md` | 产品需求文档 |
+| `docs/sdd-acceptance-checklist.md` | SDD 验收清单 |
+| `docs/site-access-guide.md` | 访问与走查指南 |
+| `docs/technical-implementation-and-reliability.md` | 技术实现与可靠性 |
+| `eval/scenarios.json` | 评测场景集（Golden + 边界 + 持久化） |
+| `eval/README.md` | 评测使用说明 |
+| `demo/README.md` | 演示 Harness（Playwright 录屏） |
+| `.cursor/skills/dreamwalker-ui/SKILL.md` | Cursor UI Skill |
+
 ## 文件结构
 
 ```text
@@ -141,5 +159,9 @@ DreamWalker/
   styles.css          视觉样式与响应式布局
   app.js              产品逻辑、生成、存储、回放、日历
   product-assets/     梦境视觉素材
+  docs/               PRD、SDD、走查与技术文档
+  eval/               评测场景集
+  demo/               演示 Harness 与成品视频
+  deliverables/       答辩 PPT 等交付物
   SUBMISSION.md       提交材料与演示脚本
 ```

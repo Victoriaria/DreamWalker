@@ -1,2 +1,8 @@
 .DS_Store
 .vercel
+
+# 演示中间产物（保留最终 mp4 与 deliverables）
+demo/output/screen_raw.webm
+demo/output/*.log
+demo/output/complete.flag
+outputs/
